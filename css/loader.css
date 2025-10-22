@@ -1,0 +1,28 @@
+#loader {
+	background: var(--white);
+	height: 5px;
+	left: 0;
+	overflow: hidden;
+	position: fixed;
+	transition: top 0.3s ease;
+	width: 100%;
+	z-index: var(--z-index-3);
+}
+
+.loader-fill {
+	animation: move 1s linear infinite;
+	background-color: var(--primary);
+	height: 100%;
+	left: -50%;
+	position: absolute;
+	width: 50%;
+}
+
+@keyframes move {
+	0% {
+		left: -50%;
+	}
+	100% {
+		left: 100%;
+	}
+}

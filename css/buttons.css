@@ -1,0 +1,55 @@
+.text-button {
+	align-items: center;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	outline: 0;
+}
+
+.primary-button {
+	align-items: center;
+	background: var(--primary);
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--radius-sm);
+	color: var(--white);
+	cursor: pointer;
+	display: flex;
+	font-size: 24px;
+	font-weight: var(--font-weight-bold);
+	justify-content: center;
+	padding: var(--spacing-xs);
+}
+
+.round-button {
+	border-radius: 20px;
+}
+
+.load-mode-button {
+	margin-top: 30px;
+	width: 100%;
+}
+
+.load-mode-button:hover {
+	color: var(--text-primary);
+}
+
+.global-search-button {
+	border-radius: 0;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	z-index: var(--z-index-3);
+}
+
+.global-search-button:hover,
+.search-button:hover {
+	background: var(--background-dark);
+}
+
+.search-button {
+	font-size: 18px;
+	height: 44px;
+	padding: 0.325px;
+}

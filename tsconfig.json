@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "js",
+    "rootDir": "ts",
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["DOM", "ES2020"],
+    "types": []
+  },
+  "include": ["ts"]
+}
