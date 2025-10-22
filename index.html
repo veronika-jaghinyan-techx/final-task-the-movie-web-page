@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Popular Movies — The Movie Database (TMDB)</title>
+		<link rel="icon" type="image/png" href="/assets/favicon.ico" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap"
+			rel="stylesheet"
+		/>
+		<script defer src="/js/main.js" type="module"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<!-- Mobile Navigation -->
+			<nav
+				class="header-nav-mobile"
+				aria-label="Header Navigation"
+				data-header-nav
+			>
+				<div class="header-left-mobile">
+					<button
+						id="burgerMenuButton"
+						class="burger-menu-button text-button"
+						aria-label="Open menu"
+						aria-expanded="false"
+					>
+						<img
+							src="/assets/icons/burger-menu.svg"
+							alt="Open menu"
+							width="23"
+							height="23"
+							class="burger-menu-icon"
+						/>
+					</button>
+				</div>
+				<div class="header-center-mobile">
+					<a href="/" class="header-logo-link" aria-label="Home">
+						<img
+							src="/assets/logo-square.svg"
+							alt="The Movie Database (TMDB)"
+							width="55"
+							height="40"
+						/>
+					</a>
+				</div>
+				<div class="header-right-mobile">
+					<ul class="header-action-items">
+						<li class="header-action-item">
+							<button
+								class="user-button text-button"
+								aria-label="User profile"
+								data-popover="user"
+							>
+								<img
+									src="/assets/icons/user.svg"
+									alt="User profile"
+									width="23"
+									height="23"
+									class="user-icon"
+								/>
+							</button>
+							<div class="popover hide" id="popover-user" role="tooltip">
+								<ul class="popover-options">
+									<li>
+										<a href="#login" class="header-dropdown-menu-link">Login</a>
+									</li>
+									<hr />
+									<li>
+										<a href="#signup" class="header-dropdown-menu-link"
+											>Sign Up</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="header-action-item">
+							<button
+								class="text-button"
+								aria-label="Search"
+								data-search-toggle
+							>
+								<img
+									src="/assets/icons/search.svg"
+									alt="Search"
+									width="30"
+									height="30"
+									class="search-icon"
+								/>
+							</button>
+						</li>
+					</ul>
+				</div>
+
+				<div
+					id="headerMenuMobile"
+					class="header-menu-mobile hide"
+					aria-hidden="true"
+				>
+					<!-- Main Menu -->
+					<ul class="header-menu-items-mobile">
+						<li>
+							<button
+								class="header-menu-link-mobile text-button"
+								aria-expanded="false"
+								aria-controls="submenu-movies-mobile"
+								data-menu-button
+							>
+								Movies
+							</button>
+							<ul
+								class="header-submenu-mobile hide"
+								id="submenu-movies-mobile"
+								aria-hidden="true"
+							>
+								<li>
+									<a href="#movie" class="header-submenu-link-mobile"
+										>Popular</a
+									>
+								</li>
+								<li>
+									<a href="#movie/top-rated" class="header-submenu-link-mobile"
+										>Top Rated</a
+									>
+								</li>
+								<li>
+									<a href="#movie/upcoming" class="header-submenu-link-mobile"
+										>Upcoming</a
+									>
+								</li>
+								<li>
+									<a
+										href="#movie/now-playing"
+										class="header-submenu-link-mobile"
+										>Now Playing</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<button
+								class="header-menu-link-mobile text-button"
+								aria-expanded="false"
+								aria-controls="submenu-popular-mobile"
+								data-menu-button
+							>
+								TV Shows
+							</button>
+							<ul
+								class="header-submenu-mobile hide"
+								id="submenu-popular-mobile"
+								aria-hidden="true"
+							>
+								<li>
+									<a href="#tv" class="header-submenu-link-mobile">Popular</a>
+								</li>
+								<li>
+									<a href="#tv/top-rated" class="header-submenu-link-mobile"
+										>Top Rated</a
+									>
+								</li>
+								<li>
+									<a href="#tv/on-the-air" class="header-submenu-link-mobile"
+										>On TV</a
+									>
+								</li>
+								<li>
+									<a href="#tv/airing-today" class="header-submenu-link-mobile"
+										>Airing Today</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<button
+								class="header-menu-link-mobile text-button"
+								aria-expanded="false"
+								aria-controls="submenu-people-mobile"
+								data-menu-button
+							>
+								People
+							</button>
+							<ul
+								class="header-submenu-mobile hide"
+								id="submenu-people-mobile"
+								aria-hidden="true"
+							>
+								<li>
+									<a href="#person" class="header-submenu-link-mobile"
+										>Popular People</a
+									>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<!-- Secondary Menu -->
+					<ul class="header-menu-items-small-mobile">
+						<li>
+							<a href="#bible" class="header-menu-small-link-mobile"
+								>Contribution Bible</a
+							>
+						</li>
+						<li>
+							<a href="#discuss" class="header-menu-small-link-mobile"
+								>Discussions</a
+							>
+						</li>
+						<li>
+							<a href="#leaderboard" class="header-menu-small-link-mobile"
+								>Leaderboard</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://developer.themoviedb.org/docs"
+								target="_blank"
+								class="header-menu-small-link-mobile"
+							>
+								API Documentation
+							</a>
+						</li>
+						<li>
+							<a href="#talk" class="header-menu-small-link-mobile">Support</a>
+						</li>
+						<li>
+							<a href="#about" class="header-menu-small-link-mobile">About</a>
+						</li>
+					</ul>
+
+					<!-- Auth Menu -->
+					<ul class="header-menu-items-small-mobile">
+						<li>
+							<a href="#login" class="header-menu-small-link-mobile">Login</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Full-width search section -->
+				<div class="header-search-wrapper hide">
+					<div class="header-search-section">
+						<form class="search-form">
+							<label class="visually-hidden" for="header-search-input-mobile"
+								>Search for a movie, TV show, person...</label
+							>
+							<input
+								id="header-search-input-mobile"
+								class="custom-input search-input"
+								placeholder="Search for a movie, TV show, person..."
+								type="search"
+							/>
+						</form>
+					</div>
+					<div class="header-search-result-section hide">
+						<div class="no-result">No Result</div>
+					</div>
+				</div>
+			</nav>
+
+			<!-- Desktop Navigation -->
+			<nav
+				class="header-nav-desktop"
+				aria-label="Header Navigation"
+				data-header-nav
+			>
+				<div class="header-left">
+					<a href="/" class="header-logo-link" aria-label="Home">
+						<img
+							src="/assets/logo.svg"
+							alt="The Movie Database (TMDB)"
+							width="154"
+							height="20"
+						/>
+					</a>
+
+					<ul class="header-menu" role="menubar" aria-orientation="horizontal">
+						<!-- Movies -->
+						<li class="header-menu-item" aria-haspopup="menu">
+							<button
+								class="header-menu-link text-button"
+								aria-expanded="false"
+								aria-controls="submenu-movies"
+								id="menu-movies"
+								data-dropdown
+							>
+								Movies
+							</button>
+							<ul
+								id="submenu-movies"
+								class="header-dropdown-menu hide"
+								role="menu"
+								aria-labelledby="menu-movies"
+							>
+								<li role="presentation">
+									<a
+										href="#movie"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Popular</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#movie/now-playing"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Now Playing</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#movie/upcoming"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Upcoming</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#movie/top-rated"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Top Rated</a
+									>
+								</li>
+							</ul>
+						</li>
+						<!-- TV Shows -->
+						<li class="header-menu-item" aria-haspopup="menu">
+							<button
+								class="header-menu-link text-button"
+								aria-expanded="false"
+								aria-controls="submenu-tv"
+								id="menu-tv"
+								data-dropdown
+							>
+								TV Shows
+							</button>
+							<ul
+								id="submenu-tv"
+								class="header-dropdown-menu hide"
+								role="menu"
+								aria-labelledby="menu-tv"
+							>
+								<li role="presentation">
+									<a
+										href="#tv"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Popular</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#tv/airing-today"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Airing Today</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#tv/on-the-air"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>On TV</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#tv/top-rated"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Top Rated</a
+									>
+								</li>
+							</ul>
+						</li>
+						<!-- People -->
+						<li class="header-menu-item" aria-haspopup="menu">
+							<button
+								class="header-menu-link text-button"
+								aria-expanded="false"
+								aria-controls="submenu-people"
+								id="menu-people"
+								data-dropdown
+							>
+								People
+							</button>
+							<ul
+								id="submenu-people"
+								class="header-dropdown-menu hide"
+								role="menu"
+								aria-labelledby="menu-people"
+							>
+								<li role="presentation">
+									<a
+										href="#person"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Popular People</a
+									>
+								</li>
+							</ul>
+						</li>
+						<!-- More -->
+						<li class="header-menu-item" aria-haspopup="menu">
+							<button
+								class="header-menu-link text-button"
+								aria-expanded="false"
+								aria-controls="submenu-more"
+								id="menu-more"
+								data-dropdown
+							>
+								More
+							</button>
+							<ul
+								id="submenu-more"
+								class="header-dropdown-menu hide"
+								role="menu"
+								aria-labelledby="menu-more"
+							>
+								<li role="presentation">
+									<a
+										href="#discussions"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Discussions</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#leaderboard"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Leaderboard</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#support"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>Support</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#api-documentation"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>API Documentation</a
+									>
+								</li>
+								<li role="presentation">
+									<a
+										href="#api-for-business"
+										role="menuitem"
+										class="header-dropdown-menu-link"
+										>API for Business</a
+									>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="header-right">
+					<ul class="header-action-items">
+						<li class="header-action-item">
+							<button
+								class="text-button"
+								aria-label="Add content"
+								data-popover="add"
+							>
+								<img
+									src="/assets/icons/add.svg"
+									alt="Add content"
+									width="25"
+									height="25"
+									class="add-icon"
+								/>
+							</button>
+							<div class="popover hide" id="popover-add" role="tooltip">
+								Can't find a movie or TV show? Login to create it.
+							</div>
+						</li>
+
+						<li class="header-action-item">
+							<button
+								class="language-button text-button"
+								aria-label="Language Preferences"
+								data-popover="language"
+							>
+								<div class="selected-language">EN</div>
+							</button>
+							<div class="popover hide" id="popover-language" role="tooltip">
+								<fieldset class="popover-language">
+									<legend class="popover-title">Language Preferences</legend>
+
+									<div class="custom-select-wrapper">
+										<label id="default-language-label" for="default-language"
+											>Default language</label
+										>
+										<div class="custom-select">
+											<button
+												id="default-language"
+												class="select-btn"
+												aria-haspopup="listbox"
+												aria-expanded="false"
+												aria-labelledby="default-language-label"
+											>
+												English (en-US)
+											</button>
+											<ul
+												class="select-options"
+												role="listbox"
+												aria-hidden="true"
+												aria-labelledby="default-language-label"
+											>
+												<li role="option" data-value="en-US">
+													English (en-US)
+												</li>
+												<li role="option" data-value="option2">Option 2</li>
+												<li role="option" data-value="option3">Option 3</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="custom-select-wrapper">
+										<label id="fallback-language-label" for="fallback-language"
+											>Fallback Language</label
+										>
+										<div class="custom-select">
+											<button
+												id="fallback-language"
+												class="select-btn"
+												aria-haspopup="listbox"
+												aria-expanded="false"
+												aria-labelledby="fallback-language-label"
+											>
+												None (Don't Fallback)
+											</button>
+											<ul
+												class="select-options"
+												role="listbox"
+												aria-hidden="true"
+												aria-labelledby="fallback-language-label"
+											>
+												<li role="option" data-value="none">
+													None (Don't Fallback)
+												</li>
+												<li role="option" data-value="option2">Option 2</li>
+												<li role="option" data-value="option3">Option 3</li>
+											</ul>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</li>
+
+						<li class="header-action-item">
+							<a href="#login" class="header-action-link">Login</a>
+						</li>
+						<li class="header-action-item">
+							<a href="#signup" class="header-action-link">Join TMDB</a>
+						</li>
+
+						<li class="header-action-item">
+							<button
+								class="text-button"
+								aria-label="Search"
+								data-search-toggle
+							>
+								<img
+									src="/assets/icons/search.svg"
+									alt="Search"
+									width="30"
+									height="30"
+									class="search-icon"
+								/>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<!-- Full-width search section -->
+				<div class="header-search-wrapper hide">
+					<div class="header-search-section">
+						<form class="search-form">
+							<label class="visually-hidden" for="header-search-input-desktop"
+								>Search for a movie, TV show, person...</label
+							>
+							<input
+								id="header-search-input-desktop"
+								class="custom-input search-input"
+								placeholder="Search for a movie, TV show, person..."
+								type="search"
+							/>
+						</form>
+					</div>
+					<div class="header-search-result-section hide">
+						<div class="no-result">No Result</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div id="loader" class="hide">
+			<div class="loader-fill"></div>
+		</div>
+		<main class="main-container">
+			<h1 class="page-title">Popular Movies</h1>
+			<article class="movies-page-wrapper">
+				<section class="sort-filter-section">
+					<div class="sort-filter-card">
+						<div
+							class="sort-filter-card-header"
+							aria-expanded="false"
+							aria-controls="sort-body"
+							data-sort-filter-header
+						>
+							<h2 class="sort-filter-card-title">Sort</h2>
+							<span class="sort-filter-card-arrow"></span>
+						</div>
+						<div
+							id="sort-body"
+							class="sort-filter-body hide"
+							aria-hidden="true"
+						>
+							<div class="sort-filter-card-body-section">
+								<div class="custom-select-wrapper">
+									<label
+										id="sort-by-label"
+										for="sort-by"
+										class="sort-filter-card-body-title"
+										>Sort Results By</label
+									>
+									<div class="custom-select sort-filter-card-select">
+										<button
+											id="sort-by"
+											class="select-btn"
+											aria-haspopup="listbox"
+											aria-expanded="false"
+											aria-labelledby="sort-by-label"
+										>
+											Popularity Descending
+										</button>
+										<ul
+											class="select-options"
+											role="listbox"
+											aria-hidden="true"
+											aria-labelledby="sort-by-label"
+										>
+											<li role="option" data-value="popularity.desc">
+												Popularity Descending
+											</li>
+											<li role="option" data-value="popularity.asc">
+												Popularity Ascending
+											</li>
+											<li role="option" data-value="vote_average.desc">
+												Rating Descending
+											</li>
+											<li role="option" data-value="vote_average.asc">
+												Rating Ascending
+											</li>
+											<li role="option" data-value="primary_release_date.desc">
+												Release Date Descending
+											</li>
+											<li role="option" data-value="primary_release_date.asc">
+												Release Date Ascending
+											</li>
+											<li role="option" data-value="title.asc">Title (A-Z)</li>
+											<li role="option" data-value="title.desc">Title (Z-A)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sort-filter-card">
+						<div
+							class="sort-filter-card-header"
+							aria-expanded="false"
+							aria-controls="filter-body"
+							data-sort-filter-header
+						>
+							<h2 class="sort-filter-card-title">Filters</h2>
+							<span class="sort-filter-card-arrow"></span>
+						</div>
+						<div id="filter-body" class="sort-filter-body" aria-hidden="false">
+							<div class="sort-filter-card-body-section">
+								<h3 class="sort-filter-card-body-title">Release Dates</h3>
+								<div class="filter release-dates-filter-component">
+									<label class="form-field">
+										<input
+											id="all_releases"
+											class="custom-input checkbox release-toggle"
+											type="checkbox"
+											name="all_releases"
+											value="true"
+											checked
+										/>
+										<label for="all_releases" class="checkbox-label"
+											>Search all releases?</label
+										>
+									</label>
+
+									<div id="release_type_wrapper" class="labels hide">
+										<label class="form-field country-toggle-wrapper">
+											<input
+												id="all_release_countries"
+												class="custom-input checkbox country-toggle"
+												type="checkbox"
+												name="all_release_countries"
+												value="true"
+												checked
+											/>
+											<label for="all_release_countries" class="checkbox-label"
+												>Search all countries?</label
+											>
+										</label>
+
+										<div
+											id="countrySelectWrapper"
+											class="custom-select-wrapper hide"
+										>
+											<div
+												id="countrySelect"
+												class="custom-select sort-filter-card-select"
+												data-selected-code="AM"
+											>
+												<button
+													id="country-filter"
+													class="select-btn"
+													aria-haspopup="listbox"
+													aria-expanded="false"
+													data-value="AM"
+												>
+													<span class="dropdown_flag default-flag"></span>
+													<span class="default-label">Armenia</span>
+												</button>
+												<ul
+													id="countrySelectOptions"
+													class="select-options"
+													role="listbox"
+												>
+													<li class="select-search-li">
+														<input
+															type="search"
+															class="custom-input select-search-input"
+															placeholder="Search country..."
+															aria-label="Filter country"
+														/>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<label class="form-field">
+											<input
+												id="release_type_2"
+												class="custom-input checkbox release-type-checkbox"
+												type="checkbox"
+												name="release_type"
+												value="2"
+												checked
+											/>
+											<label for="release_type_2" class="checkbox-label"
+												>Theatrical (limited)</label
+											>
+										</label>
+										<label class="form-field">
+											<input
+												id="release_type_3"
+												class="custom-input checkbox release-type-checkbox"
+												type="checkbox"
+												name="release_type"
+												value="3"
+												checked
+											/>
+											<label for="release_type_3" class="checkbox-label"
+												>Theatrical</label
+											>
+										</label>
+										<label class="form-field">
+											<input
+												id="release_type_1"
+												class="custom-input checkbox release-type-checkbox"
+												type="checkbox"
+												name="release_type"
+												value="1"
+												checked
+											/>
+											<label for="release_type_1" class="checkbox-label"
+												>Premiere</label
+											>
+										</label>
+										<label class="form-field">
+											<input
+												id="release_type_4"
+												class="custom-input checkbox release-type-checkbox"
+												type="checkbox"
+												name="release_type"
+												value="4"
+												checked
+											/>
+											<label for="release_type_4" class="checkbox-label"
+												>Digital</label
+											>
+										</label>
+										<label class="form-field">
+											<input
+												id="release_type_5"
+												class="custom-input checkbox release-type-checkbox"
+												type="checkbox"
+												name="release_type"
+												value="5"
+												checked
+											/>
+											<label for="release_type_5" class="checkbox-label"
+												>Physical</label
+											>
+										</label>
+										<label class="form-field">
+											<input
+												id="release_type_6"
+												class="custom-input checkbox release-type-checkbox"
+												type="checkbox"
+												name="release_type"
+												value="6"
+												checked
+											/>
+											<label for="release_type_6" class="checkbox-label"
+												>TV</label
+											>
+										</label>
+									</div>
+
+									<hr class="date-separator" />
+
+									<div class="date-picker-container">
+										<div class="year_column date-picker-group">
+											<span class="col_1">From</span>
+											<div class="datepicker date-picker-wrapper">
+												<input
+													class="custom-input"
+													id="date_from"
+													type="date"
+												/>
+												<button type="button" class="calendar-btn"></button>
+											</div>
+										</div>
+
+										<div class="year_column date-picker-group">
+											<span class="col_1">To</span>
+											<div class="datepicker date-picker-wrapper">
+												<input class="custom-input" id="date_to" type="date" />
+												<button type="button" class="calendar-btn"></button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sort-filter-card-body-section">
+								<h3 class="sort-filter-card-body-title">Genres</h3>
+								<div class="genres-container"></div>
+							</div>
+							<div class="sort-filter-card-body-section">
+								<div class="custom-select-wrapper">
+									<label
+										id="filter-by-language"
+										class="filter-by-language sort-filter-card-body-title"
+										for="language-filter"
+										>Language
+										<button
+											data-tooltip="Filter items based on their original language."
+											class="text-button"
+										>
+											<img
+												src="assets/icons/question-mark.svg"
+												alt=""
+												width="14px"
+												height="14px"
+											/>
+										</button>
+									</label>
+									<div
+										id="languageSelect"
+										class="custom-select sort-filter-card-select"
+									>
+										<button
+											id="language-filter"
+											class="select-btn"
+											aria-haspopup="listbox"
+											aria-expanded="false"
+											aria-labelledby="filter-by-language"
+										>
+											None Selected
+										</button>
+										<ul
+											id="languageSelectOptions"
+											class="select-options"
+											role="listbox"
+											aria-labelledby="filter-by-language"
+										>
+											<li class="select-search-li">
+												<input
+													type="search"
+													class="custom-input select-search-input"
+													placeholder="Search language..."
+													aria-label="Filter languages"
+												/>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="sort-filter-card-body-section">
+								<h3 class="sort-filter-card-body-title">User Score</h3>
+								<div class="k-slider k-slider-horizontal full_width range">
+									<div class="k-slider-track-wrap">
+										<ul class="k-reset k-slider-items" role="presentation">
+											<li class="k-tick k-tick-large k-first" title="0">
+												<span class="k-label">0</span>
+											</li>
+											<li class="k-tick" title="1"></li>
+											<li class="k-tick" title="2"></li>
+											<li class="k-tick" title="3"></li>
+											<li class="k-tick" title="4"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="5"
+												style="line-height: 1px"
+											>
+												<span class="k-label">5</span>
+											</li>
+											<li class="k-tick" title="6"></li>
+											<li class="k-tick" title="7"></li>
+											<li class="k-tick" title="8"></li>
+											<li class="k-tick" title="9"></li>
+											<li class="k-tick k-tick-large k-last" title="10">
+												<span class="k-label">10</span>
+											</li>
+										</ul>
+										<div class="k-slider-track">
+											<div
+												class="k-slider-selection"
+												style="width: 226px; left: -1px"
+											></div>
+											<span
+												tabindex="0"
+												class="k-draghandle"
+												title="drag"
+												role="slider"
+												aria-valuemin="0"
+												aria-valuemax="10"
+												aria-valuenow="0"
+												data-role="draggable"
+												aria-valuetext="Rated 0 - 10"
+												style="left: 0px; z-index: 1"
+											></span
+											><span
+												tabindex="0"
+												class="k-draghandle"
+												title="drag"
+												role="slider"
+												aria-valuemin="0"
+												aria-valuemax="10"
+												aria-valuenow="10"
+												style="left: 226px; z-index: 0"
+												data-role="draggable"
+												aria-valuetext="Rated 0 - 10"
+											></span>
+										</div>
+										<div
+											id="user_score_range"
+											class="full_width range"
+											data-role="rangeslider"
+											style="display: none"
+										>
+											<input
+												id="vote_average_gte"
+												name="vote_average.gte"
+												value="0"
+												type="text"
+												class="custom-input"
+											/>
+											<input
+												id="vote_average_lte"
+												name="vote_average.lte"
+												value="10"
+												type="text"
+												class="custom-input"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sort-filter-card-body-section">
+								<h3 class="sort-filter-card-body-title">Minimum User Votes</h3>
+								<div class="k-slider k-slider-horizontal full_width range">
+									<div class="k-slider-track-wrap">
+										<ul class="k-reset k-slider-items" role="presentation">
+											<li class="k-tick k-tick-large k-first" title="0">
+												<span class="k-label">0</span>
+											</li>
+											<li class="k-tick" title="50"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="100"
+												style="line-height: 1px"
+											>
+												<span class="k-label">100</span>
+											</li>
+											<li class="k-tick" title="150"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="200"
+												style="line-height: 1px"
+											>
+												<span class="k-label">200</span>
+											</li>
+											<li class="k-tick" title="250"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="300"
+												style="line-height: 1px"
+											>
+												<span class="k-label">300</span>
+											</li>
+											<li class="k-tick" title="350"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="400"
+												style="line-height: 1px"
+											>
+												<span class="k-label">400</span>
+											</li>
+											<li class="k-tick" title="450"></li>
+											<li class="k-tick k-tick-large k-last" title="500">
+												<span class="k-label">500</span>
+											</li>
+										</ul>
+										<div class="k-slider-track">
+											<div class="k-slider-selection" style="width: 0%"></div>
+											<span
+												tabindex="0"
+												class="k-draghandle"
+												title="drag"
+												role="slider"
+												aria-valuemin="0"
+												aria-valuemax="500"
+												aria-valuenow="0"
+												data-role="draggable"
+												aria-valuetext="0"
+												style="left: 0%; z-index: 1"
+											></span>
+										</div>
+										<div
+											id="user_vote_range"
+											class="full_width range"
+											data-role="slider"
+											style="display: none"
+										>
+											<input value="0" class="custom-input" />
+											<input value="0" class="custom-input" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sort-filter-card-body-section">
+								<h3 class="sort-filter-card-body-title">Runtime</h3>
+								<div class="k-slider k-slider-horizontal full_width range">
+									<div class="k-slider-track-wrap">
+										<ul class="k-reset k-slider-items" role="presentation">
+											<li class="k-tick k-tick-large k-first" title="0">
+												<span class="k-label">0</span>
+											</li>
+											<li class="k-tick" title="15"></li>
+											<li class="k-tick" title="30"></li>
+											<li class="k-tick" title="45"></li>
+											<li class="k-tick" title="60"></li>
+											<li class="k-tick" title="75"></li>
+											<li class="k-tick" title="90"></li>
+											<li class="k-tick" title="105"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="120"
+												style="line-height: 1px"
+											>
+												<span class="k-label">120</span>
+											</li>
+											<li class="k-tick" title="135"></li>
+											<li class="k-tick" title="150"></li>
+											<li class="k-tick" title="165"></li>
+											<li class="k-tick" title="180"></li>
+											<li class="k-tick" title="195"></li>
+											<li class="k-tick" title="210"></li>
+											<li class="k-tick" title="225"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="240"
+												style="line-height: 1px"
+											>
+												<span class="k-label">240</span>
+											</li>
+											<li class="k-tick" title="255"></li>
+											<li class="k-tick" title="270"></li>
+											<li class="k-tick" title="285"></li>
+											<li class="k-tick" title="300"></li>
+											<li class="k-tick" title="315"></li>
+											<li class="k-tick" title="330"></li>
+											<li class="k-tick" title="345"></li>
+											<li
+												class="k-tick k-tick-large"
+												title="360"
+												style="line-height: 1px"
+											>
+												<span class="k-label">360</span>
+											</li>
+											<li class="k-tick" title="375"></li>
+											<li class="k-tick k-last" title="390"></li>
+										</ul>
+										<div class="k-slider-track">
+											<div
+												class="k-slider-selection"
+												style="width: 158.5px; left: 66.5px"
+											>
+												<!-- -->
+											</div>
+											<span
+												tabindex="0"
+												class="k-draghandle"
+												title="drag"
+												role="slider"
+												aria-valuemin="0"
+												aria-valuemax="400"
+												aria-valuenow="120"
+												data-role="draggable"
+												aria-valuetext="120 minutes - 400 minutes"
+												style="left: 67.5px; z-index: 1"
+											></span
+											><span
+												tabindex="0"
+												class="k-draghandle"
+												title="drag"
+												role="slider"
+												aria-valuemin="0"
+												aria-valuemax="400"
+												aria-valuenow="400"
+												style="left: 226px; z-index: 0"
+												data-role="draggable"
+												aria-valuetext="120 minutes - 400 minutes"
+											></span>
+										</div>
+										<div
+											id="runtime_range"
+											class="full_width range"
+											data-role="rangeslider"
+											style="display: none"
+										>
+											<input
+												id="with_runtime_gte"
+												name="with_runtime.gte"
+												value="0"
+												type="text"
+												class="custom-input"
+											/>
+											<input
+												id="with_runtime_lte"
+												name="with_runtime.lte"
+												value="400"
+												type="text"
+												class="custom-input"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sort-filter-card-body-section">
+								<h3 class="sort-filter-card-body-title">Keywords</h3>
+								<div class="search-input-container">
+									<div id="badgeArea" class="input-like-field">
+										<input
+											type="text"
+											id="keywordSearch"
+											placeholder="Search for keywords..."
+											class="custom-input search-text-input"
+											aria-label="Search keywords"
+										/>
+									</div>
+									<ul id="resultsDropdown" class="results-dropdown-list"></ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button
+						id="searchButton"
+						class="primary-button round-button search-button"
+						disabled
+					>
+						Search
+					</button>
+				</section>
+				<section>
+					<div class="movies-list-section"></div>
+					<p class="no-movies hide">
+						No items were found that match your query.
+					</p>
+					<button
+						id="loadMoreButton"
+						class="primary-button load-mode-button hide"
+						data-page="1"
+					>
+						Load More
+					</button>
+				</section>
+			</article>
+		</main>
+		<footer class="footer">
+			<div class="footer-wrapper">
+				<!-- Join Section -->
+				<section class="join-section">
+					<h3 class="footer-menu-title visually-hidden">Join the Community</h3>
+					<img
+						src="assets/logo-square.svg"
+						alt="The Movie Database (TMDB) Logo"
+						width="130"
+						height="94"
+						class="footer-logo"
+						loading="lazy"
+					/>
+					<a href="#signup" class="join-button">Join the Community</a>
+				</section>
+
+				<!-- Footer Menus -->
+				<nav aria-label="The Basics Links">
+					<h3 class="footer-menu-title">THE BASICS</h3>
+					<ul class="footer-menu">
+						<li><a href="#about" class="footer-menu-link">About TMDB</a></li>
+						<li>
+							<a href="#staying-in-touch" class="footer-menu-link"
+								>Contact Us</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://developer.themoviedb.org/docs"
+								target="_blank"
+								rel="noopener"
+								class="footer-menu-link"
+								>API Documentation</a
+							>
+						</li>
+						<li>
+							<a href="#api-for-business" class="footer-menu-link"
+								>API for Business</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://status.themoviedb.org/"
+								target="_blank"
+								rel="noopener"
+								class="footer-menu-link"
+								>System Status</a
+							>
+						</li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Get Involved Links">
+					<h3 class="footer-menu-title">GET INVOLVED</h3>
+					<ul class="footer-menu">
+						<li>
+							<a href="#bible" class="footer-menu-link">Contribution Bible</a>
+						</li>
+						<li>
+							<a href="#movie-new" class="footer-menu-link">Add New Movie</a>
+						</li>
+						<li><a href="#tv" class="footer-menu-link">Add New TV Show</a></li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Community Links">
+					<h3 class="footer-menu-title">COMMUNITY</h3>
+					<ul class="footer-menu">
+						<li>
+							<a href="#guidelines" class="footer-menu-link">Guidelines</a>
+						</li>
+						<li><a href="#discuss" class="footer-menu-link">Discussions</a></li>
+						<li>
+							<a href="#leaderboard" class="footer-menu-link">Leaderboard</a>
+						</li>
+						<li><a href="#talk" class="footer-menu-link">Support Forums</a></li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Legal Links">
+					<h3 class="footer-menu-title">LEGAL</h3>
+					<ul class="footer-menu">
+						<li>
+							<a href="#terms-of-use" class="footer-menu-link">Terms of Use</a>
+						</li>
+						<li>
+							<a href="#api-terms-of-use" class="footer-menu-link"
+								>API Terms of Use</a
+							>
+						</li>
+						<li>
+							<a href="#privacy-policy" class="footer-menu-link"
+								>Privacy Policy</a
+							>
+						</li>
+						<li>
+							<a href="#dmca-policy" class="footer-menu-link">DMCA Policy</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Footer Bottom -->
+			<div class="footer-bottom">
+				<small>Build 75e0531 (9311)</small>
+			</div>
+		</footer>
+
+		<!-- Global Tooltip -->
+		<div id="globalTooltip" role="tooltip" class="tooltip"></div>
+		<!-- Global Search Bottom -->
+		<button
+			id="searchButtonLarge"
+			class="primary-button global-search-button hide"
+		>
+			Search
+		</button>
+	</body>
+</html>

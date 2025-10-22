@@ -1,0 +1,87 @@
+.sort-filter-card {
+	background: var(--white);
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-sm);
+	width: 100%;
+}
+
+.sort-filter-card-header,
+.sort-filter-card-body-section {
+	padding: 10px 16px;
+}
+
+.sort-filter-card-select {
+	width: 100%;
+}
+
+.sort-filter-card-header {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+}
+
+.sort-filter-card-title {
+	align-items: center;
+	display: flex;
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-semibold);
+	position: relative;
+}
+
+.sort-filter-card-arrow {
+	background: url("/assets/icons/arrow-right.svg") no-repeat center / contain;
+	height: 1rem;
+	transition: transform 0.3s ease;
+	width: 1rem;
+}
+
+.rotate-90deg {
+	transform: rotate(90deg);
+}
+
+.sort-filter-card-body-section {
+	border-top: 1px solid var(--border);
+}
+
+.filter-by-language {
+	align-items: center;
+	display: flex;
+	gap: 6px;
+}
+
+.sort-filter-card-body-title {
+	align-items: center;
+	display: inline-flex;
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-light);
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.genres-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.genre {
+	align-items: center;
+	border-radius: 16px;
+	border: 1px solid var(--border);
+	cursor: pointer;
+	display: flex;
+	font-size: 0.9rem;
+	padding: 4px 14px;
+}
+
+.genre.selected {
+	background: var(--primary);
+	border: 1px solid var(--primary);
+	color: var(--white);
+}
+
+.genre:hover {
+	border: 1px solid var(--primary);
+}

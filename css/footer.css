@@ -1,0 +1,114 @@
+.footer {
+	align-items: center;
+	background-image: radial-gradient(
+		at 30% top,
+		#031d33 0%,
+		rgba(3, 37, 65, 1) 70%
+	);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: auto;
+}
+
+.footer-wrapper {
+	color: var(--white);
+	display: flex;
+	gap: var(--spacing-xxl);
+	margin: auto;
+	max-width: 1400px;
+	padding-block: var(--spacing-xxxl);
+}
+
+.join-section {
+	position: relative;
+	right: 0;
+	text-align: right;
+	top: -36px;
+}
+
+.footer-logo {
+	height: 94px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 130px;
+}
+
+.join-button {
+	background-color: var(--white);
+	border-radius: var(--radius-sm);
+	border: 2px solid var(--white);
+	color: var(--primary);
+	cursor: pointer;
+	display: inline-block;
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-bold);
+	padding: 4px var(--spacing-md);
+	position: relative;
+	text-transform: uppercase;
+	top: 140px;
+	transition: linear 0.1s;
+}
+
+.footer-menu-title {
+	color: var(--white);
+	font-size: var(--font-size-alt);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-md);
+	margin: 0 0 4px;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.footer-menu-link {
+	color: var(--white);
+	font-size: var(--font-size-18);
+	line-height: 1.2;
+	max-width: 260px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.footer-bottom {
+	color: var(--white);
+	font-size: var(--font-size-xxs);
+	opacity: 0.1;
+	text-align: center;
+	width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+	.footer-wrapper {
+		flex-direction: column;
+		margin: 0;
+		padding: var(--spacing-xxl) var(--spacing-lg);
+		width: 100%;
+	}
+
+	.footer-menu-title {
+		margin-top: 0px;
+	}
+
+	.footer-logo {
+		display: none;
+	}
+
+	.join-section {
+		text-align: left;
+		top: 0;
+	}
+
+	.join-button {
+		color: var(--secondary);
+		top: 0;
+	}
+
+	.footer-bottom {
+		padding: var(--spacing-md);
+	}
+}

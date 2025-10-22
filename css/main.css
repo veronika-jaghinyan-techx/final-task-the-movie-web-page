@@ -1,0 +1,24 @@
+@import url("./variables.css");
+@import url("./base.css");
+
+/* Layouts */
+@import url("./layout.css");
+@import url("./header.css");
+@import url("./footer.css");
+
+/* Components */
+@import url("./buttons.css");
+@import url("./input.css");
+@import url("./tooltip.css");
+@import url("./loader.css");
+
+/* Modules */
+@import url("./customSelect.css");
+@import url("./sortFilterCards.css");
+@import url("./releaseDates.css");
+@import url("./slider.css");
+@import url("./searchInput.css");
+@import url("./movieCard.css");
+
+/* Utility */
+@import url("./helper.css");
