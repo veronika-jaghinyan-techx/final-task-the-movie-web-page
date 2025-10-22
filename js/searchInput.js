@@ -46,7 +46,7 @@ const displayResults = (results) => {
         return;
     resultsDropdown.replaceChildren();
     // Filter out keywords already selected
-    const uniqueResults = results.filter(item => !selectedKeywords.some(kw => kw.id === item.id));
+    const uniqueResults = results.filter((item) => !selectedKeywords.some((kw) => kw.id === item.id));
     if (uniqueResults.length === 0) {
         const noResultsLi = document.createElement("li");
         noResultsLi.className = "loading-indicator";
@@ -58,7 +58,7 @@ const displayResults = (results) => {
             resultsDropdown.classList.remove("show");
         return;
     }
-    uniqueResults.forEach(item => {
+    uniqueResults.forEach((item) => {
         const li = document.createElement("li");
         li.textContent = item.name;
         li.dataset.id = String(item.id);
@@ -74,7 +74,9 @@ const displayResults = (results) => {
 const addBadge = (keyword) => {
     const badgeArea = document.getElementById("badgeArea");
     const inputElement = document.getElementById("keywordSearch");
-    if (!badgeArea || !inputElement || selectedKeywords.some(kw => kw.id === keyword.id))
+    if (!badgeArea ||
+        !inputElement ||
+        selectedKeywords.some((kw) => kw.id === keyword.id))
         return;
     selectedKeywords.push(keyword);
     const badge = document.createElement("span");
@@ -84,7 +86,7 @@ const addBadge = (keyword) => {
     const closeBtn = document.createElement("span");
     closeBtn.className = "badge-close";
     closeBtn.textContent = "×";
-    closeBtn.addEventListener("click", e => {
+    closeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         removeBadge(keyword.id, badge);
     });
@@ -98,7 +100,7 @@ const addBadge = (keyword) => {
 };
 const removeBadge = (id, badgeElement) => {
     const inputElement = document.getElementById("keywordSearch");
-    selectedKeywords = selectedKeywords.filter(kw => kw.id !== id);
+    selectedKeywords = selectedKeywords.filter((kw) => kw.id !== id);
     badgeElement.remove();
     const resultsDropdown = document.getElementById("resultsDropdown");
     if (inputElement && inputElement.value)
@@ -131,7 +133,8 @@ export function initSearchInput() {
     });
     // Re-show dropdown on focus if there are results or text
     inputElement.addEventListener("focus", () => {
-        if (resultsDropdown.children.length > 0 || inputElement.value.trim().length > 0) {
+        if (resultsDropdown.children.length > 0 ||
+            inputElement.value.trim().length > 0) {
             resultsDropdown.classList.add("show");
         }
     });

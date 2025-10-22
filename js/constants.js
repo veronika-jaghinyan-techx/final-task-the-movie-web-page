@@ -1,6 +1,6 @@
 // Constants for slider and tooltip functionality
-export const SLIDER_SELECTOR = '.k-slider.range';
-export const TOOLTIP_CLASS = 'k-slider-tooltip';
+export const SLIDER_SELECTOR = ".k-slider.range";
+export const TOOLTIP_CLASS = "k-slider-tooltip";
 // Complete list of movie languages with codes and counts (from TMDB)
 export const movieLanguages = [
     { label: "None Selected", code: "" },
@@ -150,7 +150,10 @@ export const movieLanguages = [
     { label: "Tahitian (7)", code: "ty" },
     { label: "Sardinian (7)", code: "sc" },
     { label: "Chechen (7)", code: "ce" },
-    { label: "Interlingua; International Auxiliary Language Association (6)", code: "ia" },
+    {
+        label: "Interlingua; International Auxiliary Language Association (6)",
+        code: "ia",
+    },
     { label: "Limburgan; Limburger; Limburgish (6)", code: "li" },
     { label: "Bislama (6)", code: "bi" },
     { label: "Occitan (post 1500) (5)", code: "oc" },

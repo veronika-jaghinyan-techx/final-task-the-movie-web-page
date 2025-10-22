@@ -1,5 +1,5 @@
 import { AUTHORIZATION_TOKEN } from "./env.js";
-import { getFlagImageUrl, isHTMLButtonElement, isHTMLElement } from "./utils.js";
+import { getFlagImageUrl, isHTMLButtonElement, isHTMLElement, } from "./utils.js";
 /**
  * Fetches the list of countries from TMDB configuration endpoint.
  * @returns A promise that resolves to an array of Country objects.
@@ -43,7 +43,9 @@ export async function initReleaseDates() {
     const allCountriesCheckbox = document.getElementById("all_release_countries");
     const countrySelectWrapper = document.getElementById("countrySelectWrapper");
     const countrySelectContainer = document.getElementById("countrySelect");
-    if (!isHTMLElement(releaseTypeWrapper) || !isHTMLElement(countrySelectWrapper) || !isHTMLElement(countrySelectContainer)) {
+    if (!isHTMLElement(releaseTypeWrapper) ||
+        !isHTMLElement(countrySelectWrapper) ||
+        !isHTMLElement(countrySelectContainer)) {
         return;
     }
     // Set initial visibility based on checkbox state
@@ -63,7 +65,8 @@ export async function initReleaseDates() {
     // --- Country Select Dropdown ---
     const countrySelectButton = document.getElementById("country-filter");
     const countrySelectOptionsList = document.getElementById("countrySelectOptions");
-    if (!isHTMLButtonElement(countrySelectButton) || !isHTMLElement(countrySelectOptionsList)) {
+    if (!isHTMLButtonElement(countrySelectButton) ||
+        !isHTMLElement(countrySelectOptionsList)) {
         return;
     }
     const countrySearchInput = countrySelectOptionsList.querySelector(".select-search-input");
@@ -122,9 +125,13 @@ export async function initReleaseDates() {
     });
     countrySearchInput?.addEventListener("input", (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        countrySelectOptionsList.querySelectorAll("li:not(.select-search-li)").forEach((li) => {
+        countrySelectOptionsList
+            .querySelectorAll("li:not(.select-search-li)")
+            .forEach((li) => {
             const liText = li.textContent?.toLowerCase() || "";
-            li.style.display = liText.includes(searchTerm) ? "flex" : "none";
+            li.style.display = liText.includes(searchTerm)
+                ? "flex"
+                : "none";
         });
     });
     populateCountrySelect();

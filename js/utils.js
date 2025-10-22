@@ -54,7 +54,7 @@ export const clamp = (num, min, max) => Math.max(min, Math.min(max, num));
 /**
  * Converts a value within a range to a percentage (0-100).
  */
-export const valueToPercent = (value, min, max) => min === max ? 0 : ((value - min) / (max - min)) * 100;
+export const valueToPercent = (value, min, max) => (min === max ? 0 : ((value - min) / (max - min)) * 100);
 /**
  * Converts a percentage (0-100) back to a stepped value within a range.
  */

@@ -1,4 +1,4 @@
-import { formatDate, getSingleMovieUrl, isHTMLButtonElement, isHTMLElement } from "./utils.js";
+import { formatDate, getSingleMovieUrl, isHTMLButtonElement, isHTMLElement, } from "./utils.js";
 import { AUTHORIZATION_TOKEN } from "./env.js";
 import { getStructuredSliderValues } from "./slider.js";
 // Local state for pagination and API endpoint management
@@ -82,7 +82,9 @@ export function initMovies() {
                 // Create subtitle
                 const subtitle = document.createElement("div");
                 subtitle.className = "movie-card-subtitle";
-                subtitle.textContent = movie.release_date ? formatDate(movie.release_date) : "";
+                subtitle.textContent = movie.release_date
+                    ? formatDate(movie.release_date)
+                    : "";
                 // Create overview
                 const overview = document.createElement("div");
                 overview.className = "movie-card-overview";
@@ -172,51 +174,57 @@ export function initMovies() {
         // 2. Sort, Language, Country
         const selectedSort = document.querySelector("#sort-by");
         const selectedLanguage = document.querySelector("#language-filter");
-        const selectedCountry = document.querySelector('#country-filter');
-        const allReleases = document.querySelector('#all_releases');
-        const getAllCountries = document.querySelector('#all_release_countries');
+        const selectedCountry = document.querySelector("#country-filter");
+        const allReleases = document.querySelector("#all_releases");
+        const getAllCountries = document.querySelector("#all_release_countries");
         // 3. Keywords
         const selectedKeywordIds = Array.from(document.querySelectorAll("#badgeArea > span"), (span) => span.dataset.id);
         // 4. Release Type
-        const releaseTypes = Array.from(document.querySelectorAll('input[name="release_type"]:checked')).map(input => input.value);
+        const releaseTypes = Array.from(document.querySelectorAll('input[name="release_type"]:checked')).map((input) => input.value);
         // 5. Date Range
-        const fromInput = document.getElementById('date_from');
-        const toInput = document.getElementById('date_to');
+        const fromInput = document.getElementById("date_from");
+        const toInput = document.getElementById("date_to");
         // 6. Sliders (Vote Count, Vote Average, Runtime)
         const sliderValues = getStructuredSliderValues();
         const obj = {
             page,
             sort_by: selectedSort ? selectedSort.dataset.value : undefined,
             with_original_language: selectedLanguage
-                ? selectedLanguage.dataset.value : undefined,
+                ? selectedLanguage.dataset.value
+                : undefined,
             with_origin_country: allReleases?.checked === true
                 ? undefined
-                : (getAllCountries?.checked === true
+                : getAllCountries?.checked === true
                     ? undefined
-                    : selectedCountry?.dataset.value),
+                    : selectedCountry?.dataset.value,
             with_genres: selectedGenresIds.length ? selectedGenresIds : undefined,
             // Map slider values directly to the expected dot notation keys
-            'vote_count.gte': sliderValues.vote_count.gte,
-            'vote_average.gte': sliderValues.vote_average.gte,
-            'vote_average.lte': sliderValues.vote_average.lte,
-            'with_runtime.gte': sliderValues.with_runtime.gte,
-            'with_runtime.lte': sliderValues.with_runtime.lte,
+            "vote_count.gte": sliderValues.vote_count.gte,
+            "vote_average.gte": sliderValues.vote_average.gte,
+            "vote_average.lte": sliderValues.vote_average.lte,
+            "with_runtime.gte": sliderValues.with_runtime.gte,
+            "with_runtime.lte": sliderValues.with_runtime.lte,
             with_keywords: selectedKeywordIds.length ? selectedKeywordIds : undefined,
             with_release_type: allReleases?.checked === true
                 ? undefined
-                : (releaseTypes.length ? releaseTypes : undefined),
+                : releaseTypes.length
+                    ? releaseTypes
+                    : undefined,
             // Release date uses 'primary_release_date' for discover endpoint
-            'primary_release_date.gte': fromInput?.value || undefined,
-            'primary_release_date.lte': toInput?.value || undefined,
+            "primary_release_date.gte": fromInput?.value || undefined,
+            "primary_release_date.lte": toInput?.value || undefined,
         };
         // Only include the required OR keys for pipe separator (TMDB specific)
         const OR_KEYS = ["with_release_type", "with_companies", "with_genres"];
         // Universal serialize function
         const params = new URLSearchParams();
         for (const [key, value] of Object.entries(obj)) {
-            if (value == null || value === "" || (Array.isArray(value) && !value.length) || (typeof value === 'number' && value === 0))
+            if (value == null ||
+                value === "" ||
+                (Array.isArray(value) && !value.length) ||
+                (typeof value === "number" && value === 0))
                 continue;
-            if (key.includes('.')) {
+            if (key.includes(".")) {
                 // Direct dot-notation keys (e.g., vote_average.gte)
                 params.append(key, String(value));
             }
@@ -231,7 +239,7 @@ export function initMovies() {
             }
         }
         // Append the mandatory language
-        params.append('language', 'en-US');
+        params.append("language", "en-US");
         return params.toString();
     }
     // --- Search Button Click Handler ---

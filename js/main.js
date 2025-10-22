@@ -5,7 +5,7 @@ import { initSlider } from "./slider.js";
 import { initSearchInput } from "./searchInput.js";
 import { initReleaseDates } from "./releaseDates.js";
 import { initTooltip } from "./tooltip.js";
-import { initializeFilterTracker } from './filterTracker.js';
+import { initializeFilterTracker } from "./filterTracker.js";
 /**
  * Main initialization function that runs when the DOM is ready.
  */
