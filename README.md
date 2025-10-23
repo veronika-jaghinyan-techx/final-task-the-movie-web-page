@@ -1,57 +1,106 @@
-# Final Task — Movie Web Page
+# 🎬 The Movie Web Page Clone
 
-A small, responsive movie web page implemented with plain HTML, CSS and JavaScript. Intended as a final assignment demonstrating layout, responsive design, accessibility and basic client-side interactivity.
+A front-end project to clone the design and core functionality of **The Movie Database (TMDb)** popular movies section. This application fetches and displays dynamic movie data using the official **TMDb API**.
 
-Demo
+## ✨ Features
 
-- Live demo (replace with your URL): https://your-username.github.io/final-task-the-movie-web-page/
+* **Popular Movies Listing:** Dynamically fetches and displays a list of currently **Popular Movies** from the TMDb API.
+* **Filters & Sorting:** Implement complex UI components to sort and filter movies by:
+    * **Genres**
+    * **Release Dates**
+    * **Sort By** (e.g., Popularity, Vote Average)
+* **Responsive Design:** A modern, mobile-first interface meticulously designed to replicate the original TMDb website look and feel.
+* **Modular Codebase:** Organized structure for CSS and TypeScript files for clear separation of UI components and logic.
 
-Folder / file structure
+---
 
-```
-final-task-the-movie-web-page/
-├── README.md
-├── index.html
-├── .gitignore
-├── src/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   └── main.js
-│   └── data/
-│       └── movies.json
-├── assets/
-│   ├── images/
-│   │   └── poster-*.jpg
-│   └── icons/
-├── dist/                   # build output (if any)
-└── tests/                  # optional unit / integration tests
-  └── ...
-```
+## 💻 Tech Stack
 
-General overview
+| Technology | Role |
+| :--- | :--- |
+| **TypeScript** | The main language used for all client-side logic, ensuring a robust and maintainable application. |
+| **HTML5** | Project structure and semantic markup. |
+| **CSS3** | All styling, utilizing a modular approach with separate files for variables, layouts, components, and utilities. |
+| **TMDb API** | The primary data source for all movie information. |
 
-- Single-page layout showcasing movies, details and trailers.
-- Responsive grid/list view for movie cards.
-- Accessible markup (semantic HTML, proper alt text, focus states).
-- Client-side filtering/sorting and a modal for details/trailer playback.
-- Static JSON or API-driven data source (src/data/movies.json).
+---
 
-How to run locally
+## 📁 Project Structure
 
-- Prerequisites: Node.js + npm.
-- Install TypeScript (globally or as dev dependency) and compile:
-  - Globally: `npm install -g typescript`
-  - Or dev dependency: `npm install --save-dev typescript`
-  - Compile: `npx tsc` or `tsc` (will emit JS to configured outDir)
-- Serve with Live Server:
-  - VS Code: install the Live Server extension and click "Open with Live Server" on index.html.
-  - Or CLI: `npx live-server` (or `npx http-server`) then open the provided URL (e.g., http://127.0.0.1:8080).
-- Notes:
-  - Ensure compiled JS output from TypeScript is placed where index.html expects it (update script src if needed).
-  - For quick testing you can open index.html directly, but some features (fetching JSON) may require a server.
+The project maintains a clean separation between source files, compiled output, and assets.
 
-Customization
+├── assets/ // Icons and images 
+├── css/ // All source CSS files 
+│ ├── main.css // Main style entry point 
+│ ├── variables.css 
+│ ├── base.css 
+│ ├── layout.css
+│ ├── header.css
+│ ├── footer.css
+│ ├── buttons.css
+│ ├── input.css
+│ ├── tooltip.css
+│ ├── loader.css
+│ ├── customSelect.css
+│ ├── sortFilterCards.css
+│ ├── releaseDates.css
+│ ├── slider.css
+│ ├── searchInput.css
+│ ├── movieCard.css
+│ └── helper.css
+├── ts/ // All source TypeScript files
+│ ├── main.ts // Application entry point and initialization 
+│ ├── constants.ts 
+│ ├── customSelect.ts 
+│ ├── env.ts
+│ ├── filterTracker.ts
+│ ├── header.ts
+│ ├── movies.ts
+│ ├── releaseDates.ts
+│ ├── searchInput.ts
+│ ├── slider.ts
+│ ├── tooltip.ts
+│ ├── types.ts
+│ └── utils.ts
+├── js/ // Compiled JavaScript files (output from 'tsc') 
+├── .gitignore      // Ignores the sensitive .env file (API keys).
+├── index.html // Main entry page 
+└── tsconfig.json // TypeScript compiler configuration
 
-- Replace assets/images and src/data/movies.json with your own content.
-- Update the demo link to point to your GitHub Pages or deployed site.
+````
+
+## 🚀 Getting Started
+
+To run this project locally, you need **Node.js** and **TypeScript** installed globally.
+
+### Prerequisites
+
+* **Node.js** (includes npm)
+* **TypeScript** (`npm install -g typescript`)
+
+### Local Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [Your Repository URL]
+    cd [your-project-directory]
+    ```
+
+2.  **Compile TypeScript:**
+    Use the TypeScript compiler (`tsc`) to convert the `.ts` files into executable `.js` files. This step must be run before viewing the project.
+    ```bash
+    tsc
+    ```
+
+3.  **Run with Live Server:**
+    Use a local development server (like the VS Code Live Server extension or `npx http-server`) to serve the `index.html` file.
+    * **Example:** If using VS Code's Live Server, right-click `index.html` and select **"Open with Live Server."**
+
+---
+
+## 🌐 Live Demo
+
+The project is deployed and available for live preview:
+
+[**View Live Demo on Vercel**](https://final-task-the-movie-web-page.vercel.app/)
+````
