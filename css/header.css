@@ -296,7 +296,7 @@
 	background: var(--background-dark-2);
 	display: flex;
 	flex-direction: column;
-	height: calc(100dvh - env(safe-area-inset-bottom));
+	height: calc(100dvh + var(--header-height);
 	left: 0;
 	padding: var(--spacing-lg);
 	position: fixed;
